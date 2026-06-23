@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia Collins | Help Desk and IT Support Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+  :root{
+    --ink:#0E1B33;
+    --ink-soft:#48556f;
+    --ink-faint:#7c879b;
+    --bg:#FBFCFE;
+    --surface:#FFFFFF;
+    --line:#E4E9F2;
+    --line-strong:#cfd8e8;
+    --accent:#2456E6;
+    --accent-soft:#EAF0FF;
+    --signal:#10968A;
+    --shadow:0 1px 2px rgba(14,27,51,.04), 0 10px 30px -18px rgba(14,27,51,.28);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px}
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,252,254,.82);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.02em;font-size:1.02rem}
+  .brand b{color:var(--accent)}
+  .topnav{display:flex;gap:8px;align-items:center}
+  .topnav a{
+    font-size:.82rem;font-weight:500;color:var(--ink-soft);
+    padding:7px 13px;border-radius:999px;border:1px solid transparent;transition:.18s;
+  }
+  .topnav a:hover{color:var(--ink);border-color:var(--line-strong);background:var(--surface)}
+  .topnav a.cta{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .topnav a.cta:hover{background:#1c46c2;color:#fff}
+
+  /* Hero */
+  .hero{padding:64px 0 30px}
+  .status{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'JetBrains Mono',monospace;font-size:.74rem;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--signal);
+    background:rgba(16,150,138,.08);border:1px solid rgba(16,150,138,.22);
+    padding:6px 13px;border-radius:999px;margin-bottom:22px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(16,150,138,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,150,138,.45)}70%{box-shadow:0 0 0 8px rgba(16,150,138,0)}100%{box-shadow:0 0 0 0 rgba(16,150,138,0)}}
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(2.6rem,6vw,4.1rem);line-height:1.02;letter-spacing:-.02em;
+  }
+  .role{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--accent);margin-top:10px;
+  }
+  .lede{max-width:660px;color:var(--ink-soft);font-size:1.04rem;margin-top:18px}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:24px;
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink-soft);
+  }
+  .meta span{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);padding:7px 12px;border-radius:9px}
+  .meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  /* Metrics dashboard */
+  .metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:38px 0 8px;
+  }
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .stat::after{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--accent),var(--signal))}
+  .stat .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.05rem;letter-spacing:-.02em;line-height:1}
+  .stat .lab{font-size:.8rem;color:var(--ink-soft);margin-top:9px}
+
+  /* Sections */
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:.74rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:12px;margin-bottom:24px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--line-strong)}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:4px}
+
+  /* Competency chips */
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    font-size:.86rem;font-weight:500;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);
+    padding:9px 15px;border-radius:999px;transition:.16s;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+  /* Timeline */
+  .timeline{position:relative;margin-left:6px}
+  .job{position:relative;padding:0 0 30px 30px;border-left:2px solid var(--line)}
+  .job:last-child{padding-bottom:0}
+  .job::before{
+    content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--surface);border:2px solid var(--accent);
+  }
+  .job .when{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--ink-faint);font-weight:600}
+  .job h3{font-family:'Space Grotesk',sans-serif;font-size:1.16rem;font-weight:600;margin-top:5px}
+  .job .org{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:1px}
+  .job ul{list-style:none;margin-top:13px;display:grid;gap:9px}
+  .job li{position:relative;padding-left:20px;color:var(--ink-soft);font-size:.95rem}
+  .job li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:1px;background:var(--signal);transform:rotate(45deg)}
+  .job li b{color:var(--ink);font-weight:600}
+
+  /* Two column */
+  .grid2{display:grid;grid-template-columns:1fr 1.35fr;gap:40px}
+  .stack{display:grid;gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+  .card h4{font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:600;margin-bottom:3px}
+  .card .sub{font-size:.86rem;color:var(--ink-soft)}
+  .card .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--signal);margin-top:8px;letter-spacing:.05em}
+  .skillrow{padding:13px 0;border-bottom:1px solid var(--line)}
+  .skillrow:last-child{border-bottom:none;padding-bottom:0}
+  .skillrow:first-child{padding-top:0}
+  .skillrow .k{font-family:'JetBrains Mono',monospace;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+  .skillrow .v{font-size:.92rem;color:var(--ink-soft)}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:50px 0 60px;text-align:center}
+  footer h2{margin-bottom:8px}
+  footer p{color:var(--ink-soft);max-width:440px;margin:0 auto 22px}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.92rem;
+    padding:12px 22px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);transition:.18s;
+  }
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.primary:hover{background:#1c46c2;color:#fff}
+  .fineprint{margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-faint)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* focus */
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+
+  @media (max-width:760px){
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    .grid2{grid-template-columns:1fr;gap:30px}
+    .topnav a:not(.cta){display:none}
+    .hero{padding:44px 0 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+  @media print{
+    .topbar,footer .actions,.dot{display:none}
+    body{background:#fff}
+    section,.hero{padding:18px 0;border-color:#ccc}
+    .stat,.card{box-shadow:none}
+    .reveal{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">Asia <b>Collins</b></div>
+      <nav class="topnav">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="mailto:collinsasiatech@gmail.com" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero" style="border-top:none">
+      <div class="status reveal"><span class="dot"></span> Open to remote federal IT support roles</div>
+      <h1 class="reveal">Asia Collins</h1>
+      <div class="role reveal">Help Desk Specialist &nbsp;/&nbsp; IT Support Specialist</div>
+      <p class="lede reveal">Customer-focused IT support professional with 5+ years delivering Tier 1 technical support by phone, email, and chat in high-volume, regulated environments. I run tickets cleanly in ServiceNow, hit SLAs, and keep customers informed from first contact to resolution.</p>
+      <div class="meta reveal">
+        <span>Atlanta, GA</span>
+        <span>(470) 681-8205</span>
+        <span>collinsasiatech@gmail.com</span>
+        <span>U.S. Citizen</span>
+        <span>Eligible: Public Trust &amp; Secret</span>
+      </div>
+
+      <div class="metrics">
+        <div class="stat reveal"><div class="num">5+</div><div class="lab">Years in IT support and operations</div></div>
+        <div class="stat reveal"><div class="num">300+</div><div class="lab">Daily requests resolved in ServiceNow</div></div>
+        <div class="stat reveal"><div class="num">95%</div><div class="lab">Customer satisfaction rate</div></div>
+        <div class="stat reveal"><div class="num">25%</div><div class="lab">Lift in CSAT through faster resolution</div></div>
+      </div>
+    </section>
+
+    <section id="summary">
+      <div class="eyebrow reveal">Core competencies</div>
+      <div class="chips reveal">
+        <span class="chip">Help Desk and Call Center Support</span>
+        <span class="chip">ServiceNow Ticket Documentation</span>
+        <span class="chip">Incident Research and Resolution</span>
+        <span class="chip">SLA and Metrics Achievement</span>
+        <span class="chip">Phone, Email, and Chat Support</span>
+        <span class="chip">Escalation Management</span>
+        <span class="chip">Customer Satisfaction</span>
+        <span class="chip">Problem Solving and Troubleshooting</span>
+        <span class="chip">Government and Regulated Environments</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="eyebrow reveal">Professional experience</div>
+      <h2 class="reveal" style="margin-bottom:26px">Where I have supported users</h2>
+      <div class="timeline">
+
+        <article class="job reveal">
+          <div class="when">DEC 2023 to MAY 2026</div>
+          <h3>IT Support and Operations Specialist</h3>
+          <div class="org">DXC Technology &middot; Atlanta, GA (Remote)</div>
+          <ul>
+            <li>Answered and resolved <b>300+ daily customer requests</b> by phone, email, and chat using ServiceNow, achieving a 25% improvement in customer satisfaction scores.</li>
+            <li>Researched, identified, and resolved technical issues to closure with timely follow-up that consistently <b>met and exceeded service level agreements</b>.</li>
+            <li>Documented every ticket accurately and on time in ServiceNow, keeping complete records across overlapping workflows in a fast-paced enterprise.</li>
+            <li>Escalated complex issues to internal representatives and system support specialists, ensuring rapid resolution and minimal customer disruption.</li>
+            <li>Identified and communicated recurring problems through continuous monitoring, reducing operational risk exposure by 20%.</li>
+            <li>Administered Okta/Azure AD and O365, supporting user access, password resets, and account troubleshooting.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="when">APR 2023 to NOV 2023</div>
+          <h3>Technical Support and Customer Operations Specialist</h3>
+          <div class="org">Rheem Manufacturing Inc. &middot; Atlanta, GA (Remote)</div>
+          <ul>
+            <li>Delivered multi-channel Tier 1 support (phone, email, chat) for hardware, software, installation, and product issues, achieving a <b>95% customer satisfaction rate</b>.</li>
+            <li>Trained end users on applications, tools, and best practices, reducing repeat support requests by 20%.</li>
+            <li>Partnered with software and internal teams to research, document, and resolve recurring technical issues.</li>
+            <li>Maintained organized support history and documentation for rapid follow-up and consistent service quality.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="when">DEC 2022 to APR 2023</div>
+          <h3>Research and Adjustment Analyst II</h3>
+          <div class="org">Bank of America &middot; Atlanta, GA (Remote)</div>
+          <ul>
+            <li>Investigated and resolved <b>150+ discrepancies annually</b> by applying regulatory guidelines and internal policies.</li>
+            <li>Analyzed datasets spanning millions of records to surface trends and compliance risks, cutting discrepancies by 20%.</li>
+            <li>Prepared reports and adjustment summaries supporting regulatory reviews, with documented resolution on 95% of analyzed records.</li>
+            <li>Maintained strict data confidentiality, coordinating with compliance and legal teams throughout.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="when">MAR 2021 to OCT 2022</div>
+          <h3>Senior Client Support and Case Resolution Specialist</h3>
+          <div class="org">Bank of America &middot; Atlanta, GA (Remote)</div>
+          <ul>
+            <li>Tracked, routed, and resolved support cases across <b>50+ partner banks</b> using structured ticketing workflows with complete audit trails.</li>
+            <li>Evaluated and prioritized cases by urgency with detailed documentation, ensuring timely escalation and resolution.</li>
+            <li>Verified complete resolution with team leads before case closure, upholding accuracy and accountability standards.</li>
+            <li>Researched and resolved processing errors alongside partners, demonstrating analytical precision and clear communication.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="eyebrow reveal">Education, certification, and stack</div>
+      <div class="grid2">
+        <div class="stack">
+          <div class="card reveal">
+            <h4>Western Governors University</h4>
+            <div class="sub">B.S. Information Technology</div>
+            <span class="tag">IN PROGRESS</span>
+          </div>
+          <div class="card reveal">
+            <h4>YearUp Apprenticeship</h4>
+            <div class="sub">Technology and Business Development, Atlanta, GA</div>
+            <span class="tag">GRADUATED MAY 2021</span>
+          </div>
+          <div class="card reveal">
+            <h4>Certified Scrum Master (CSM)</h4>
+            <div class="sub">Agile Enterprise Coach</div>
+            <span class="tag">CERTIFICATION</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="skillrow">
+            <div class="k">Ticketing and Support</div>
+            <div class="v">ServiceNow, Zendesk, Talkdesk, ticket triage and ownership, 2nd and 3rd tier escalation, KCS documentation</div>
+          </div>
+          <div class="skillrow">
+            <div class="k">Platforms and Tools</div>
+            <div class="v">Okta/Azure AD, O365, Google Workspace, AnyConnect</div>
+          </div>
+          <div class="skillrow">
+            <div class="k">Troubleshooting</div>
+            <div class="v">Windows, macOS, Linux, SaaS and web apps, SSO and identity, browsers, endpoint agents</div>
+          </div>
+          <div class="skillrow">
+            <div class="k">IT Practices</div>
+            <div class="v">ITIL incident, problem, and change fundamentals, SLAs and OLAs, post-incident reviews, root-cause analysis</div>
+          </div>
+          <div class="skillrow">
+            <div class="k">Networking</div>
+            <div class="v">TCP/IP, DNS, DHCP, VPNs, VLANs, firewall basics, log analysis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="eyebrow reveal" style="justify-content:center">Let us talk</div>
+      <h2 class="reveal">Ready to support your users</h2>
+      <p class="reveal">Available for remote help desk and IT support roles, including federal and government-supporting work. Eligible for Public Trust and Secret clearance.</p>
+      <div class="actions reveal">
+        <a class="btn primary" href="mailto:collinsasiatech@gmail.com">Email Asia</a>
+        <a class="btn" href="tel:+14706818205">(470) 681-8205</a>
+        <a class="btn" href="#" onclick="window.print();return false;">Print or save as PDF</a>
+      </div>
+      <div class="fineprint reveal">Atlanta, GA &nbsp;|&nbsp; U.S. Citizen &nbsp;|&nbsp; collinsasiatech@gmail.com</div>
+    </div>
+  </footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(Math.min(i,6)*45)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
